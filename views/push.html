@@ -2,11 +2,36 @@
 <html>
 <head>
 	<title>비상상황 | 글로벌 No.1 KT </title>
+	<script type="text/javascript" src="https://svcapi.gigagenie.ai/sdk/v1.0/js/gigagenie.js"></script>
+	<script type="text/javascript">
+		var options={};
+		var status='NI';
 
+		function init(){
+		  options={};
+		  options.apikey="RTUwMDI5ODF8R0JPWERFVk18MTU2MTUyMzc5MjkzMw=="; // api key given from developer portal
+		  options.keytype="GBOXDEVM"; // 개발자모드를 설정하고 사용하세요.
+		  gigagenie.init(options,function(result,result_msg,extra){
+		    if(result===200){
+		      status='IS';
+		      startExercise();
+		    };
+		  });
+
+		}
+		function startExercise(){
+		  var options={};
+		  options.ttstext="비상 메시지가 전송되었습니다."
+		  gigagenie.voice.sendTTS(options,function(result_cd,result_msg,extra){
+		    
+		  });
+		};
+
+	</script>
 </head>
-<body style="background-color:beige";>
+<body style="background-color: beige;">
 
-	<div style="text-align: center;">
+	<div style="text-align: center; margin-top: 100px;">
 		<img src="bell-icon-9.png">
   	</div>
 </body>
