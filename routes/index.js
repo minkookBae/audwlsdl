@@ -26,12 +26,10 @@ router.post('/push', (req,res) => {
             if (err) {
                 console.error(err)
                 result.message = '메세지 발송에 실패했습니다.'
-                return res.json(result)
             }
 
             console.log(response.results)
             result.message = "Push메세지가 발송되었습니다."
-            res.render('push')
         })
 
         const push_data2 = {
@@ -49,12 +47,10 @@ router.post('/push', (req,res) => {
             if (err) {
                 console.error(err)
                 result2.message = '메세지 발송에 실패했습니다.'
-                return res.json(result2)
             }
 
             console.log(response.results)
             result2.message = "Push메세지가 발송되었습니다."
-            res.render('push')
         })
 
 
@@ -76,7 +72,6 @@ router.post('/push', (req,res) => {
             if (err) {
                 console.error(err)
                 result3.message = '메세지 발송에 실패했습니다.'
-                return res.json(result3)
             }
 
             console.log(response.results)
