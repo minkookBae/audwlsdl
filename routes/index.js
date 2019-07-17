@@ -8,6 +8,8 @@ router.post('/push', (req,res) => {
     var client_token = req.body.token
     console.log(req.body)
     const result = {}
+    const result2 = {}
+    const result3 = {}
         /** 발송할 Push 메시지 내용 */
         const push_data = {
             to: client_token,
@@ -46,12 +48,12 @@ router.post('/push', (req,res) => {
         fcm.send(push_data2, function (err, response) {
             if (err) {
                 console.error(err)
-                result.message = '메세지 발송에 실패했습니다.'
-                return res.json(result)
+                result2.message = '메세지 발송에 실패했습니다.'
+                return res.json(result2)
             }
 
             console.log(response.results)
-            result.message = "Push메세지가 발송되었습니다."
+            result2.message = "Push메세지가 발송되었습니다."
             res.render('push')
         })
 
@@ -73,12 +75,12 @@ router.post('/push', (req,res) => {
         fcm.send(push_data3, function (err, response) {
             if (err) {
                 console.error(err)
-                result.message = '메세지 발송에 실패했습니다.'
-                return res.json(result)
+                result3.message = '메세지 발송에 실패했습니다.'
+                return res.json(result3)
             }
 
             console.log(response.results)
-            result.message = "Push메세지가 발송되었습니다."
+            result3.message = "Push메세지가 발송되었습니다."
             res.render('push')
         })
 });
